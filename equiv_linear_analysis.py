@@ -259,7 +259,7 @@ if __name__ == "__main__":
       G_i = site_details[i,0] * (layer_vs[i]**2) * (1 + 2j * layer_damping[i])
       G_i1 = site_details[i+1,0] * (layer_vs[i+1]**2) * (1 + 2j * layer_damping[i+1])
       
-      # Alpha is the ratio of complex impedances (rho1 * V1* / rho2 * V2*)
+      # Alpha - the ratio of complex impedances (rho1 * V1* / rho2 * V2*)
       pvs_i = np.sqrt(site_details[i,0] * G_i)
       pvs_i1 = np.sqrt(site_details[i+1,0] * G_i1)
       layer_alpha[i] = pvs_i / pvs_i1
@@ -283,7 +283,7 @@ if __name__ == "__main__":
     ################
 
 
-    ###### Main routine to evaluate results at each layer
+    ### Solution of the transfer functions #################
 
     # Get accel, veloc, disp and strain at each layer using the frequency content of the input motion and the transfer functions
     for i in range(len(site_details)):
@@ -329,13 +329,14 @@ if __name__ == "__main__":
         # Invert the fft
         strain_at_layers[i, :] = np.real(fft.ifft(strain_fft))
 
-    #############
+    ### End solution block ########
 
     for i in range(len(site_details) - 1):
       eff_strains[i] = effective_strain_ratio * np.max(np.abs(strain_at_layers[i]))
 
-    
+    ## End iteration block ###########
 
+  ## End program ##############
 
 
 
@@ -356,7 +357,6 @@ if __name__ == "__main__":
   plt.plot(per,surf_spec,'r')
   plt.xscale('log')
   plt.show()
-
 
 
 

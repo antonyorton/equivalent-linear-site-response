@@ -4,7 +4,7 @@ This program calcuates the 1D seismic site response for layered soils using the 
 
 The results of the program have been compared to DeepSoil v6.1 for the Chi Chi earthquake and shown to give similar results for several example sites.
 
-The program is within the _if **name** == "**main**"_ block.
+The program is within the `if __name__ == "__main__"` block.
 
 #### Reference
 
