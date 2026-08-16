@@ -313,7 +313,6 @@ if __name__ == "__main__":
       if i < len(site_details) - 1:
         z_mid = layer_thickness[i] / 2.0
 
-        
         # Strain transfer function from base layer to layer i
         strain_transfer_fn[1:] = ((1j * layer_k[i, 1:]) * (
             ampl_E[i, 1:] * np.exp(1j * layer_k[i, 1:] * z_mid) - 
