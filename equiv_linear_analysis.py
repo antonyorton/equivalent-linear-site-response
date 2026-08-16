@@ -238,6 +238,7 @@ if __name__ == "__main__":
   #Equivalent linear analysis starting values for effective strain
   eff_strains = 1.1e-6 * np.ones(len(site_details)) 
 
+  ##### Iterate - updating Vs and damping based on effective strain at the midpoint of each layer #######
   for iterations in np.arange(8):
     print("Iteration number ",str(iterations))
     print(layer_vs)
